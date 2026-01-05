@@ -1,36 +1,239 @@
-
 <!DOCTYPE html>
 <html lang="bg">
 <head>
 <meta charset="UTF-8">
-<title>BARON TOUR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>БАРОН ТУР – Вашият билет към света</title>
+
 <style>
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; }
-header { background: #d4af37; padding: 20px; text-align: center; color: #000; font-size: 28px; font-weight: bold; }
-section { padding: 20px; }
-h2 { color: #d4af37; }
-footer { background: #000; color: #fff; text-align: center; padding: 10px; margin-top: 30px; }
+body{
+  margin:0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:#0b0b0b;
+  color:#fff;
+}
+header{
+  background:linear-gradient(135deg,#000,#1a1a1a);
+  padding:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:30px;
+  font-weight:bold;
+  color:#d4af37;
+}
+.logo span{
+  display:block;
+  font-size:14px;
+  color:#ccc;
+}
+nav a{
+  color:#d4af37;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:bold;
+}
+.hero{
+  background:url("https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1600&q=80") center/cover;
+  height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.hero h1{
+  background:rgba(0,0,0,0.6);
+  padding:20px 30px;
+  border-radius:10px;
+  font-size:42px;
+  color:#d4af37;
+}
+section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+h2{
+  color:#d4af37;
+  border-bottom:2px solid #d4af37;
+  display:inline-block;
+  padding-bottom:5px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.card{
+  background:#111;
+  border:1px solid #d4af37;
+  border-radius:12px;
+  padding:20px;
+  text-align:center;
+}
+footer{
+  background:#000;
+  text-align:center;
+  padding:30px;
+  color:#aaa;
+}
+
+/* Floating buttons */
+.floating{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.floating a{
+  padding:12px 18px;
+  border-radius:50px;
+  color:#fff;
+  font-weight:bold;
+  text-decoration:none;
+  text-align:center;
+}
+.whatsapp{background:#25D366;}
+.viber{background:#7360F2;}
+.chat{background:#d4af37;color:#000;cursor:pointer;}
+
+/* Chat box */
+#chatBox{
+  display:none;
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  width:280px;
+  height:360px;
+  background:#fff;
+  color:#000;
+  border-radius:12px;
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
+  overflow:hidden;
+}
+#chatHeader{
+  background:#d4af37;
+  padding:10px;
+  font-weight:bold;
+}
+#chatMessages{
+  height:250px;
+  padding:10px;
+  font-size:14px;
+}
+#chatInput{
+  display:flex;
+}
+#chatInput input{
+  flex:1;
+  border:none;
+  padding:10px;
+}
+#chatInput button{
+  border:none;
+  background:#d4af37;
+  padding:10px;
+  font-weight:bold;
+}
+.lang{
+  background:#000;
+  color:#d4af37;
+  border:1px solid #d4af37;
+  padding:5px;
+  margin-left:10px;
+}
 </style>
 </head>
+
 <body>
-<header>BARON TOUR</header>
 
-<section>
-<h2>Самолетни билети</h2>
-<p>Предлагаме евтини самолетни билети до всяка точка на света.</p>
-<p>Тел: 0895 525 598 / 0895 055 256</p>
+<header>
+  <div class="logo">✈ БАРОН ТУР<span>Вашият билет към света</span></div>
+  <div>
+    <nav style="display:inline;">
+      <a href="#services">Услуги</a>
+      <a href="#about">За нас</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <select class="lang" onchange="switchLang(this.value)">
+      <option value="bg">BG</option>
+      <option value="en">EN</option>
+    </select>
+  </div>
+</header>
+
+<div class="hero">
+  <h1 id="heroText">Луксозни самолетни билети по целия свят</h1>
+</div>
+
+<section id="services">
+  <h2 id="servicesTitle">Нашите услуги</h2>
+  <div class="cards">
+    <div class="card">✈ Издаване на самолетни билети</div>
+    <div class="card">📅 Смяна на дати и имена</div>
+    <div class="card">👨‍👩‍👧‍👦 Групови резервации</div>
+    <div class="card">🕒 24/7 съдействие</div>
+  </div>
 </section>
 
-<section>
-<h2>Персонални подаръци</h2>
-<p>Лазерно гравиране, снимки на очи, колиета, гривни и персонализирани подаръци.</p>
+<section id="about">
+  <h2 id="aboutTitle">За нас</h2>
+  <p id="aboutText">
+    БАРОН ТУР работи от <b>2014 година</b> и вече повече от десетилетие помага на
+    хиляди доволни клиенти да пътуват сигурно и комфортно по целия свят.
+  </p>
 </section>
 
-<section>
-<h2>Контакти</h2>
-<p>Пишете ни по всяко време!</p>
+<section id="contacts">
+  <h2 id="contactTitle">Контакти</h2>
+  <p>📞 0895 525 598 / 0895 055 256</p>
 </section>
 
-<footer>© BARON TOUR</footer>
+<footer>
+  © 2014–2026 БАРОН ТУР • Всички права запазени
+</footer>
+
+<div class="floating">
+  <a class="whatsapp" href="https://wa.me/359895525598">WhatsApp</a>
+  <a class="viber" href="viber://chat?number=+359895525598">Viber</a>
+  <a class="chat" onclick="toggleChat()">Чат на живо</a>
+</div>
+
+<div id="chatBox">
+  <div id="chatHeader">Чат на живо</div>
+  <div id="chatMessages">Здравейте! Как можем да помогнем?</div>
+  <div id="chatInput">
+    <input placeholder="Напишете съобщение…">
+    <button>➤</button>
+  </div>
+</div>
+
+<script>
+function toggleChat(){
+  var c=document.getElementById("chatBox");
+  c.style.display = c.style.display==="block" ? "none":"block";
+}
+function switchLang(l){
+  if(l==="en"){
+    heroText.innerText="Luxury flight tickets worldwide";
+    servicesTitle.innerText="Our services";
+    aboutTitle.innerText="About us";
+    aboutText.innerText="BARON TOUR has been operating since 2014 with thousands of satisfied clients worldwide.";
+    contactTitle.innerText="Contacts";
+  }else{
+    heroText.innerText="Луксозни самолетни билети по целия свят";
+    servicesTitle.innerText="Нашите услуги";
+    aboutTitle.innerText="За нас";
+    aboutText.innerHTML="БАРОН ТУР работи от <b>2014 година</b> и вече повече от десетилетие помага на хиляди доволни клиенти.";
+    contactTitle.innerText="Контакти";
+  }
+}
+</script>
+
 </body>
 </html>
